@@ -68,6 +68,16 @@ function MainComponent() {
     const handlePageChange = (page) => {
         setCurrentPage(page);
     };
+    const previousPage = () => {
+        if (currentPage > 1) {
+            setCurrentPage(currentPage - 1)
+        }
+    }
+    const nextPage = () => {
+        if (currentPage < Math.ceil(blogs.length / itemsPerPage)) {
+            setCurrentPage(currentPage + 1)
+        }
+    }
     const shuffleArray = (array) => {
         const shuffledArray = [...array];
         for (let i = shuffledArray.length - 1; i > 0; i--) {
@@ -137,15 +147,30 @@ function MainComponent() {
                                 </ul>
                             </div>
                             <div className="flex justify-center pagination">
+                                <button
+                                    className='text-[#a6a6a6] border-[1px] py-[5px] px-[20px] mx-2 hover:text-black hover:border-black '
+                                    onClick={previousPage}
+                                    disabled={currentPage === 1}
+                                >
+                                    &lt; Previous
+                                </button>
                                 {Array.from({ length: Math.ceil(blogs.length / itemsPerPage) }, (_, index) => (
                                     <button
                                         key={index + 1}
                                         onClick={() => handlePageChange(index + 1)}
-                                        className={`text-[#a6a6a6] border-[1px] py-[5px] px-[20px] mx-2 ${currentPage === index + 1 ? 'active' : ''}`}
+                                        className={`text-[#a6a6a6] border-[1px] py-[5px] px-[20px] mx-2 hover:text-black hover:border-black
+                                         ${currentPage === index + 1 ? 'active' : ''}`}
                                     >
                                         {index + 1}
                                     </button>
                                 ))}
+                                <button
+                                    className='text-[#a6a6a6] cursor-pointer border-[1px] py-[5px] px-[20px] mx-2 hover:text-black hover:border-black '
+                                    onClick={nextPage}
+                                    disabled={currentPage === Math.ceil(blogs.length / itemsPerPage)}
+                                >
+                                    Next &gt;
+                                </button>
                             </div>
                         </div>
                         <div className='px-[30px] '>
