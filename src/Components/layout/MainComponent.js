@@ -1,8 +1,6 @@
 import blog1 from '../../images/12.jpg'
-import blog from '../../images/blog_share.jpg'
 import author from '../../images/author.jpg'
-import blog_latest from '../../images/blog_lastest.jpg'
-import { Facebook, Instagram, Twitter, Google, Pinterest, Link } from 'react-bootstrap-icons'
+import { Facebook, Instagram, Twitter, Google, Pinterest } from 'react-bootstrap-icons'
 import { useState, useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
 function MainComponent() {
@@ -24,7 +22,7 @@ function MainComponent() {
             console.log(error)
         }
     }
-
+    console.log('re-render')
     const Blog = ({ blog }) => {
         const createdAtDate = new Date(blog.created_at);
         const day = createdAtDate.getDate();
@@ -233,4 +231,4 @@ function MainComponent() {
         </>
     )
 }
-export default MainComponent
+export default MainComponent 

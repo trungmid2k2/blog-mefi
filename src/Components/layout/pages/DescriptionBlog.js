@@ -20,7 +20,7 @@ function DescriptionBlog() {
     useEffect(() => {
         fetchData();
     }, [id]);
-    console.log(blog)
+
     const dateCreate = new Date(blog.created_at)
     const day = dateCreate.getDay()
     const month = dateCreate.getMonth() + 1
@@ -50,7 +50,7 @@ function DescriptionBlog() {
                     </div>
                     <br></br>
                     <div>
-                        <div className="w-[775px] mx-auto text-left text-[16px] font-thin">{blog.content_html}</div>
+                        <div className="w-[775px] mx-auto text-left" dangerouslySetInnerHTML={{ __html: blog.content_html }}></div>
                     </div>
                 </div>
             </div >
