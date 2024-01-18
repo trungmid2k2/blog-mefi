@@ -157,7 +157,7 @@ function MainComponent() {
                                         key={index + 1}
                                         onClick={() => handlePageChange(index + 1)}
                                         className={`text-[#a6a6a6] border-[1px] py-[5px] px-[20px] mx-2 hover:text-black hover:border-black
-                                         ${currentPage === index + 1 ? 'active' : ''}`}
+                                         ${currentPage === index + 1 ? 'active text-black border-black' : ''}`}
                                     >
                                         {index + 1}
                                     </button>

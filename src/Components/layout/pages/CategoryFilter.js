@@ -66,7 +66,7 @@ function CategoryFilter() {
     return (
         <>
             <div className="py-[110px]">
-                <div className=" shadow-[0_0px_8px_0px_rgba(0,0,0,0.5)] w-[1210px] mx-auto ">
+                <div className=" shadow-[0_0px_8px_0px_rgba(0,0,0,0.5)] text-center w-[1210px] mx-auto ">
                     <div className='py-[30px]'>
                         <div>
                             <h2 className="mb-[30px]">You search posts by category: '<span className="text-[#d1bb95]">{category.toUpperCase()}</span>' </h2>
@@ -81,7 +81,7 @@ function CategoryFilter() {
                             {
                                 `text-[#a6a6a6] cursor-pointer border-[1px] py-[5px] px-[20px] mx-2 w-[130px] h-[50px]
                             ${currentPage === 1
-                                    ? 'hover:none hover:none'
+                                    ? 'hover:none hover:none cursor-not-allowed'
                                     : 'hover:text-black hover:border-black'}`
                             }
                             onClick={previousPage}
@@ -97,7 +97,7 @@ function CategoryFilter() {
                                     className=
                                     {
                                         `text-[#a6a6a6] border-[1px] py-[5px] px-[20px] mx-2 hover:text-black hover:border-black
-                                         ${currentPage === index + 1 ? 'active' : ''}`
+                                         ${currentPage === index + 1 ? 'active text-black border-black cursor-default' : ''}`
                                     }
                                 >
                                     {index + 1}
@@ -111,7 +111,7 @@ function CategoryFilter() {
                             {
                                 `text-[#a6a6a6] cursor-pointer border-[1px] py-[5px] px-[20px] mx-2 w-[95px] h-[50px]
                                 ${currentPage === Math.ceil(blogs.length / itemsPerPage)
-                                    ? 'hover:none hover:none'
+                                    ? 'hover:none hover:none cursor-not-allowed'
                                     : 'hover:text-black hover:border-black'}`}
                             onClick={nextPage}
                             disabled={currentPage === Math.ceil(blogs.length / itemsPerPage)}

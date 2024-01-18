@@ -51,15 +51,15 @@ function HeaderComponent() {
                 <div className='fixed z-10'>
                     <div className='flex items-center justify-between shadow-lg w-[100vw] bg-white'>
                         <div className='pl-[50px]'>
-                            <NavLink to='/'><img className="w-[144px] h-[60px]" src={logoMiddle} alt='logo'></img></NavLink>
+                            <NavLink to='/blog-mefi'><img className="w-[144px] h-[60px]" src={logoMiddle} alt='logo'></img></NavLink>
                         </div>
                         <div>
                             <ul className='flex' >
-                                <li className='px-4'><NavLink className='hover:text-[#d1bb95] font-medium text-[14px]' to='/'>HOME</NavLink></li>
-                                <li className='px-4'><NavLink className='hover:text-[#d1bb95] font-medium text-[14px]' to='/'>PAGES</NavLink></li>
+                                <li className='px-4'><NavLink className='hover:text-[#d1bb95] font-medium text-[14px]' to='/blog-mefi'>HOME</NavLink></li>
+                                <li className='px-4'><NavLink className='hover:text-[#d1bb95] font-medium text-[14px]' to='/blog-mefi'>PAGES</NavLink></li>
 
-                                <li className='px-4'><NavLink className='hover:text-[#d1bb95] font-medium text-[14px]' to='/about'>ABOUT</NavLink></li>
-                                <li className='px-4'><NavLink className='hover:text-[#d1bb95] font-medium text-[14px]' to='/contact'>CONTACT</NavLink></li>
+                                <li className='px-4'><NavLink className='hover:text-[#d1bb95] font-medium text-[14px]' to='/blog-mefi/about'>ABOUT</NavLink></li>
+                                <li className='px-4'><NavLink className='hover:text-[#d1bb95] font-medium text-[14px]' to='/blog-mefi/contact'>CONTACT</NavLink></li>
                                 <li >
                                     <div className='absolute top-[35%]'>
                                         <button
@@ -87,10 +87,10 @@ function HeaderComponent() {
                     </div>
                 </div>
                 <Routes>
-                    <Route path='/about' element={<About></About>} />
-                    <Route path='/' element={<MainComponent />} />
-                    <Route path={`/blog/:id`} element={<DescriptionBlog />} />
-                    <Route path={`/blogs/:category`} element={<CategoryFilter />} />
+                    <Route path='/blog-mefi/about' element={<About></About>} />
+                    <Route path='/blog-mefi' element={<MainComponent />} />
+                    <Route path={`/blog-mefi/blog/:id`} element={<DescriptionBlog />} />
+                    <Route path={`/blog-mefi/blogs/:category`} element={<CategoryFilter />} />
                 </Routes>
             </BrowserRouter >
         </>
