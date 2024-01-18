@@ -1,7 +1,7 @@
 
 
 
-function FooterComponent() {
+function Footer() {
     return (
         <> <div className="pt-[60px]"></div>
             <div className='bg-black'>
@@ -74,4 +74,4 @@ function FooterComponent() {
         </>
     )
 }
-export default FooterComponent
+export default Footer

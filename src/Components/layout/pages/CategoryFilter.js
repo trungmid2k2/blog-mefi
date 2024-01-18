@@ -51,7 +51,7 @@ function CategoryFilter() {
                         ) : <p>Hided</p>}
                     </div>
                     <div className='py-[10px]'>
-                        <NavLink className='font-bold text-[18px] hover:text-[#d1bb95]' to={`/blog/${blog.id}`}>
+                        <NavLink className='font-bold text-[18px] hover:text-[#d1bb95]' to={`/blog-mefi/blog/${blog.id}`}>
                             {blog.title}
                         </NavLink>
                     </div>

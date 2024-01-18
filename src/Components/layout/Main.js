@@ -3,7 +3,7 @@ import author from '../../images/author.jpg'
 import { Facebook, Instagram, Twitter, Google, Pinterest } from 'react-bootstrap-icons'
 import { useState, useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
-function MainComponent() {
+function Main() {
     const [blogs, setBlogs] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = 6;
@@ -231,4 +231,4 @@ function MainComponent() {
         </>
     )
 }
-export default MainComponent 
+export default Main 
