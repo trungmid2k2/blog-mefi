@@ -9,15 +9,15 @@ import MainComponent from './MainComponent'
 import DescriptionBlog from './pages/DescriptionBlog'
 import About from './pages/About'
 import CategoryFilter from './pages/CategoryFilter'
+import { ChevronDown, ChevronUp } from 'react-bootstrap-icons'
 
 const ListDropMenu = ({ blogs }) => {
     const uniqueCategories = [...new Set(blogs.map(blog => blog.category))];
     const listCate = uniqueCategories.map((cate, i) => (
-        <li className='px-4' key={i}>
+        <li className='px-4 py-[8px]' key={i}>
             <NavLink
                 to={`/blogs/${cate}`}
                 className='hover:text-[#d1bb95] font-medium text-[14px]'
-
             >
                 {cate.toUpperCase()}
             </NavLink>
@@ -25,12 +25,13 @@ const ListDropMenu = ({ blogs }) => {
     ))
     return (
         <>
-            {listCate}
+            <div className='relative bg-white shadow-[0_0px_1px_0px_rgba(0,0,0,0.5)] m-[10px]'>{listCate}</div>
         </>
     )
 }
 function HeaderComponent() {
     const [blogs, setBlogs] = useState([])
+    const [isOpen, setIsOpen] = useState(false)
     useEffect(() => {
         fetchData()
     }, [])
@@ -39,13 +40,11 @@ function HeaderComponent() {
         try {
             const response = await fetch(url)
             const data = await response.json()
-
             setBlogs(data.blogs)
         } catch (error) {
             console.log(error)
         }
     }
-
     return (
         <>
             <BrowserRouter>
@@ -61,9 +60,18 @@ function HeaderComponent() {
 
                                 <li className='px-4'><NavLink className='hover:text-[#d1bb95] font-medium text-[14px]' to='/about'>ABOUT</NavLink></li>
                                 <li className='px-4'><NavLink className='hover:text-[#d1bb95] font-medium text-[14px]' to='/contact'>CONTACT</NavLink></li>
-                                <ListDropMenu blogs={blogs}></ListDropMenu>
+                                <li >
+                                    <div className='absolute top-[35%]'>
+                                        <button
+                                            onClick={() => setIsOpen((prev) => !prev)}
+                                            className='px-4 hover:text-[#d1bb95] font-medium text-[14px] flex items-center'
+                                        >
+                                            CATEGORIES
+                                            {isOpen ? <ChevronUp /> : <ChevronDown />}
+                                        </button>
+                                        {isOpen && <ListDropMenu blogs={blogs}></ListDropMenu>}</div>
+                                </li>
                             </ul>
-
                         </div>
                         <div className='flex'>
                             <div className='border-gray-950 border-r-[0.5px] mr-7 pr-7 h-[40px] flex items-center'>
