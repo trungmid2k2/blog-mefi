@@ -45,7 +45,7 @@ function MainComponent() {
                         )}
                     </div>
                     <div className='py-[10px]'>
-                        <NavLink className='font-bold text-[18px] hover:text-[#d1bb95]' to={`/blog/${blog.id}`}>{blog.title}</NavLink>
+                        <NavLink className='font-bold text-[18px] hover:text-[#d1bb95]' to={`/blog-mefi/blog/${blog.id}`}>{blog.title}</NavLink>
                     </div>
                     <div className='italic'>
                         {blog.description}
@@ -91,7 +91,7 @@ function MainComponent() {
                     <div><img className='w-[122px] h-[81px]' src={blog.photo_url} alt=''></img></div>
                     <div className='w-[228px]'>
                         <div className='box-border h-[81px] flex flex-col justify-between'>
-                            <div><NavLink className='font-bold text-[16px] leading-none hover:text-[#d1bb95]' to={`/blog/${blog.id}`}>{blog.description}</NavLink></div>
+                            <div><NavLink className='font-bold text-[16px] leading-none hover:text-[#d1bb95]' to={`/blog-mefi/blog/${blog.id}`}>{blog.description}</NavLink></div>
                             <div><p className='text-[#a6a6a6] italic'>by <span className='text-[#191919]'>{blog.user_id}</span></p></div>
                         </div>
                     </div>

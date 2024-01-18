@@ -16,7 +16,7 @@ const ListDropMenu = ({ blogs }) => {
     const listCate = uniqueCategories.map((cate, i) => (
         <li className='px-4 py-[8px]' key={i}>
             <NavLink
-                to={`/blogs/${cate}`}
+                to={`/blog-mefi/blogs/${cate}`}
                 className='hover:text-[#d1bb95] font-medium text-[14px]'
             >
                 {cate.toUpperCase()}
