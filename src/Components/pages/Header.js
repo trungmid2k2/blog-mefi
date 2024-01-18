@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import logoMiddle from '../../images/logo.png'
-import logoFb from './logo/facebook_logo.png'
-import logoIst from './logo/instagram_logo.png'
-import logoTt from './logo/twitter_logo.png'
-import search from './logo/search.png'
+import logoFb from '../../images/logo/facebook_logo.png'
+import logoIst from '../../images/logo/instagram_logo.png'
+import logoTt from '../../images/logo/twitter_logo.png'
+import search from '../../images/logo/search.png'
 import { NavLink } from 'react-router-dom'
 
 import { ChevronDown, ChevronUp } from 'react-bootstrap-icons'

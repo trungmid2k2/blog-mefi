@@ -1,7 +1,7 @@
-import imgAb from '../../../images/about.jpg'
-import img1 from '../../../images/about_blog1.jpg'
-import img2 from '../../../images/about_blog2.jpg'
-import img3 from '../../../images/about_blog3.jpg'
+import imgAb from '../../images/about.jpg'
+import img1 from '../../images/about_blog1.jpg'
+import img2 from '../../images/about_blog2.jpg'
+import img3 from '../../images/about_blog3.jpg'
 import { CheckLg, Check } from 'react-bootstrap-icons'
 function About() {
     return (

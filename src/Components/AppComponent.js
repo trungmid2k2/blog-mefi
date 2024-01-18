@@ -1,9 +1,9 @@
-import Header from './layout/Header'
-import Footer from "./layout/Footer"
-import About from './layout/pages/About'
+import Header from "./pages/Header"
+import Footer from "./pages/Footer"
+import About from './pages/About'
 import Main from './layout/Main'
-import DescriptionBlog from './layout/pages/DescriptionBlog'
-import CategoryFilter from './layout/pages/CategoryFilter'
+import DescriptionBlog from './pages/DescriptionBlog'
+import CategoryFilter from './pages/CategoryFilter'
 import { Route, Routes } from 'react-router-dom'
 
 function AppComponent() {
