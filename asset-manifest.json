@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/blog-mefi/static/css/main.aa55f5ac.css",
-    "main.js": "/blog-mefi/static/js/main.2cbe1fa0.js",
+    "main.css": "/blog-mefi/static/css/main.1024eb3c.css",
+    "main.js": "/blog-mefi/static/js/main.7a769650.js",
     "static/js/787.cea9d95a.chunk.js": "/blog-mefi/static/js/787.cea9d95a.chunk.js",
     "static/media/about_blog2.jpg": "/blog-mefi/static/media/about_blog2.2415bdfc0d35a64cc1f8.jpg",
     "static/media/about.jpg": "/blog-mefi/static/media/about.952e7c5252a049a6a2a1.jpg",
@@ -12,12 +12,12 @@
     "static/media/author.jpg": "/blog-mefi/static/media/author.1fb6c0c089254048da9a.jpg",
     "static/media/logo.svg": "/blog-mefi/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/blog-mefi/index.html",
-    "main.aa55f5ac.css.map": "/blog-mefi/static/css/main.aa55f5ac.css.map",
-    "main.2cbe1fa0.js.map": "/blog-mefi/static/js/main.2cbe1fa0.js.map",
+    "main.1024eb3c.css.map": "/blog-mefi/static/css/main.1024eb3c.css.map",
+    "main.7a769650.js.map": "/blog-mefi/static/js/main.7a769650.js.map",
     "787.cea9d95a.chunk.js.map": "/blog-mefi/static/js/787.cea9d95a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.aa55f5ac.css",
-    "static/js/main.2cbe1fa0.js"
+    "static/css/main.1024eb3c.css",
+    "static/js/main.7a769650.js"
   ]
 }
