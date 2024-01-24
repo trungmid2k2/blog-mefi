@@ -1,25 +1,28 @@
 import { useParams } from "react-router-dom"
 import { useEffect, useState } from "react";
+import useDesPost from "../../zustand/descriptionPost";
 
 function DescriptionBlog() {
     const { id } = useParams()
-    const [blog, setBlog] = useState([])
+    // const [blog, setBlog] = useState([])
+    const { blog, setId, fetchDesCriptionPost } = useDesPost()
 
-    const fetchData = async () => {
-        const url = `https://api.slingacademy.com/v1/sample-data/blog-posts/${id}`
-        try {
-            const response = await fetch(url);
-            const data = await response.json();
-            setBlog(data.blog)
-            console.log(data); // Dữ liệu của blog với id tương ứng
-        } catch (error) {
-            console.log(error);
-        }
-    };
+    // const fetchDesCriptionPost = async () => {
+    //     const url = `https://api.slingacademy.com/v1/sample-data/blog-posts/${id}`
+    //     try {
+    //         const response = await fetch(url);
+    //         const data = await response.json();
+    //         setBlog(data.blog)
+    //         console.log(data); // Dữ liệu của blog với id tương ứng
+    //     } catch (error) {
+    //         console.log(error);
+    //     }
+    // };
 
     useEffect(() => {
-        fetchData();
-    }, [id]);
+        setId(id)
+        fetchDesCriptionPost();
+    }, [id, setId, fetchDesCriptionPost]);
 
     const dateCreate = new Date(blog.created_at)
     const day = dateCreate.getDay()
