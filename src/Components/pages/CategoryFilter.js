@@ -1,36 +1,47 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { NavLink } from "react-router-dom";
+import useCatePost from "../../zustand/postCategory";
 function CategoryFilter() {
+
+    // const [blogs, setBlogs] = useState([])
     const { category } = useParams();
-    const [blogs, setBlogs] = useState([])
-    const [currentPage, setCurrentPage] = useState(1);
-    const itemsPerPage = 10;
+    const { blogs, currentPage, itemsPerPage, setCurrentPage, setCategory, fetchCategoryPost } = useCatePost();
+
+    useEffect(() => {
+        setCategory(category);
+        fetchCategoryPost();
+    }, [category, setCategory, fetchCategoryPost]);
+    // const [currentPage, setCurrentPage] = useState(1);
+    // const itemsPerPage = 10;
+    // console.log(blogs)
     const handlePageChange = (page) => {
         setCurrentPage(page);
-    };
+    }
+
     const previousPage = () => {
-        if (currentPage > 1)
-            setCurrentPage(currentPage - 1)
+        if (currentPage > 1) {
+            setCurrentPage(currentPage - 1);
+        }
     }
     const nextPage = () => {
-        if (currentPage < Math.ceil(blogs.length / itemsPerPage))
-            setCurrentPage(currentPage + 1)
-    }
-    useEffect(() => {
-        fetchData();
-    }, [category]);
-    const fetchData = async () => {
-        const url = `https://api.slingacademy.com/v1/sample-data/blog-posts?filter[category]=${category}&offset=5&limit=30`;
-        try {
-            const response = await fetch(url);
-            const data = await response.json();
-            const filteredBlogs = data.blogs.filter(blog => blog.category === category);
-            setBlogs(filteredBlogs);
-        } catch (error) {
-            console.log(error);
+        const totalPages = Math.ceil(blogs.length / itemsPerPage);
+        if (currentPage < totalPages) {
+            setCurrentPage(currentPage + 1);
         }
-    };
+    }
+
+    // const fetchCategoryPost = async () => {
+    //     const url = `https://api.slingacademy.com/v1/sample-data/blog-posts?filter[category]=${category}&offset=5&limit=30`;
+    //     try {
+    //         const response = await fetch(url);
+    //         const data = await response.json();
+    //         const filteredBlogs = data.blogs.filter(blog => blog.category === category);
+    //         setBlogs(filteredBlogs);
+    //     } catch (error) {
+    //         console.log(error);
+    //     }
+    // };
     const PostByCategory = () => {
         const startIndex = (currentPage - 1) * itemsPerPage;
         const endIndex = startIndex + itemsPerPage;
