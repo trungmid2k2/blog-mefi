@@ -1,7 +1,6 @@
 import { NavLink } from "react-router-dom";
-// import useApiStore from "../../zustand/apiStore";
 import { useEffect, useState } from "react";
-
+import blog1 from '../../images/12.jpg'
 function PostLatest() {
     const [blogs, setBlogs] = useState([]);
     const fetchData = async () => {
@@ -15,11 +14,11 @@ function PostLatest() {
             console.log(error)
         }
     }
-    // const { blogs, fetchAllBlogs } = useApiStore();
+
     useEffect(() => {
         fetchData()
     }, [])
-
+    console.log('postLatest')
     const shuffleArray = (array) => {
         const shuffledArray = [...array];
         for (let i = shuffledArray.length - 1; i > 0; i--) {

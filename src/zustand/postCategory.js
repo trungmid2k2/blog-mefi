@@ -9,8 +9,7 @@ const useCatePost = create((set, get) => ({
     setCategory: (category) => set({ category }),
     fetchCategoryPost: async () => {
         const { category, currentPage, itemsPerPage } = get();
-        console.log('çategory', category);
-        const url = `https://api.slingacademy.com/v1/sample-data/blog-posts?filter[category]=${category}&offset=5&limit=30`;
+        const url = `https://api.slingacademy.com/v1/sample-data/blog-posts?filter[category]=${category}&offset=5&limit=50`;
         try {
             const response = await fetch(url);
             const data = await response.json();

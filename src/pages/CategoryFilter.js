@@ -1,17 +1,17 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { NavLink } from "react-router-dom";
-import useCatePost from "../../zustand/postCategory";
+import useCatePost from "../zustand/postCategory";
 function CategoryFilter() {
 
-    // const [blogs, setBlogs] = useState([])
+
     const { category } = useParams();
     const { blogs, currentPage, itemsPerPage, setCurrentPage, setCategory, fetchCategoryPost } = useCatePost();
 
     useEffect(() => {
         setCategory(category);
         fetchCategoryPost();
-    }, [category, setCategory, fetchCategoryPost]);
+    }, [category, fetchCategoryPost]);
     // const [currentPage, setCurrentPage] = useState(1);
     // const itemsPerPage = 10;
     // console.log(blogs)
@@ -48,8 +48,8 @@ function CategoryFilter() {
         const currentBlogs = blogs.slice(startIndex, endIndex);
         const listPost = currentBlogs.map((blog, i) =>
         (
-            <li className="mx-8" key={i + blog.category}>
-                <div className='w-[370px] mb-[15px] text-left'>
+            <li className="mx-8" key={i + blog.id}>
+                <div className='w-[370px] mb-[15px] text-left ' key={i}>
                     <div>
                         <img className='w-[370px]' src={blog.photo_url} alt=''></img>
                     </div>
@@ -74,6 +74,7 @@ function CategoryFilter() {
         ))
         return <> {listPost}</>
     }
+    console.log('Category')
     return (
         <>
             <div className="py-[110px]">
@@ -82,7 +83,7 @@ function CategoryFilter() {
                         <div>
                             <h2 className="mb-[30px]">You search posts by category: '<span className="text-[#d1bb95]">{category.toUpperCase()}</span>' </h2>
                             <ul className="w-[870px] mx-auto flex justify-start flex-wrap">
-                                <PostByCategory></PostByCategory>
+                                <PostByCategory ></PostByCategory>
                             </ul>
                         </div>
                     </div>
@@ -90,11 +91,10 @@ function CategoryFilter() {
                         <button
                             className=
                             {
-                                `text-[#a6a6a6] cursor-pointer border-[1px] py-[5px] px-[20px] mx-2 w-[130px] h-[50px]
+                                `text-[#a6a6a6] border-[1px] py-[5px] px-[20px] mx-2 w-[130px] h-[50px]
                             ${currentPage === 1
-                                    ? 'hover:none hover:none cursor-not-allowed'
-                                    : 'hover:text-black hover:border-black'}`
-                            }
+                                    ? 'hover:none hover:none cursor-default text-white border-white'
+                                    : 'hover:text-black cursor-pointer hover:border-black'}`}
                             onClick={previousPage}
                             disabled={currentPage === 1}
                         >
@@ -108,22 +108,21 @@ function CategoryFilter() {
                                     className=
                                     {
                                         `text-[#a6a6a6] border-[1px] py-[5px] px-[20px] mx-2 hover:text-black hover:border-black
-                                         ${currentPage === index + 1 ? 'active text-black border-black cursor-default' : ''}`
+                                        ${currentPage === index + 1 ? 'active text-black border-black cursor-default' : ''}`
                                     }
                                 >
                                     {index + 1}
                                 </button>
                             </>
                         )
-
                         )}
                         <button
                             className=
                             {
-                                `text-[#a6a6a6] cursor-pointer border-[1px] py-[5px] px-[20px] mx-2 w-[95px] h-[50px]
+                                `text-[#a6a6a6] border-[1px] py-[5px] px-[20px] mx-2 w-[95px] h-[50px]
                                 ${currentPage === Math.ceil(blogs.length / itemsPerPage)
-                                    ? 'hover:none hover:none cursor-not-allowed'
-                                    : 'hover:text-black hover:border-black'}`}
+                                    ? 'hover:none hover:none cursor-default text-white border-white'
+                                    : 'hover:text-black cursor-pointer hover:border-black'}`}
                             onClick={nextPage}
                             disabled={currentPage === Math.ceil(blogs.length / itemsPerPage)}
                         >

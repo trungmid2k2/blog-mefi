@@ -4,9 +4,15 @@ import { create } from "zustand";
 const useApiStore = create((set, get) => ({
     blogs: [],
     blog: null,
+    currentPage: 1,
+    itemsPerPage: 6,
+    category: '',
+    setCurrentPage: (page) => set({ currentPage: page }),
+    setCategory: (category) => set({ category }),
     searchKey: '',
     fetchAllBlogs: async () => {
-        const url = 'https://api.slingacademy.com/v1/sample-data/blog-posts?offset=5&limit=30';
+        const { currentPage, itemsPerPage } = get();
+        const url = 'https://api.slingacademy.com/v1/sample-data/blog-posts?offset=5&limit=40';
         try {
             const response = await fetch(url);
             if (!response.ok) {

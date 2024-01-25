@@ -1,24 +1,10 @@
 import { useParams } from "react-router-dom"
-import { useEffect, useState } from "react";
-import useDesPost from "../../zustand/descriptionPost";
+import { useEffect } from "react";
+import useDesPost from "../zustand/descriptionPost";
 
 function DescriptionBlog() {
     const { id } = useParams()
-    // const [blog, setBlog] = useState([])
     const { blog, setId, fetchDesCriptionPost } = useDesPost()
-
-    // const fetchDesCriptionPost = async () => {
-    //     const url = `https://api.slingacademy.com/v1/sample-data/blog-posts/${id}`
-    //     try {
-    //         const response = await fetch(url);
-    //         const data = await response.json();
-    //         setBlog(data.blog)
-    //         console.log(data); // Dữ liệu của blog với id tương ứng
-    //     } catch (error) {
-    //         console.log(error);
-    //     }
-    // };
-
     useEffect(() => {
         setId(id)
         fetchDesCriptionPost();
@@ -28,6 +14,7 @@ function DescriptionBlog() {
     const day = dateCreate.getDay()
     const month = dateCreate.getMonth() + 1
     const year = dateCreate.getFullYear()
+    console.log('description')
     return (
         <>
             <div className="py-[110px]">
